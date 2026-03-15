@@ -1,0 +1,7 @@
+MYUSER="$USER"
+touch "practice2_${MYUSER}_part1.log"
+ssh-keygen
+ls -l ~/.ssh
+cat ~/.ssh/*.pub
+ls -l ~/.ssh/*.pub
+ls -ld ~/.ssh

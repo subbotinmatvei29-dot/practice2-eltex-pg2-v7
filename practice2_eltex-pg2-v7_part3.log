@@ -1,0 +1,14 @@
+gh auth login
+gh auth setup-git --hostname github.com
+gh auth status
+gh repo create subbotinmatvei29-dot/practice2-eltex-pg2-v7 --public
+mkdir ~/practice2-eltex-pg2-v7
+cd ~/practice2-eltex-pg2-v7
+echo "# Practice 2 reports and tasks" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:subbotinmatvei29-dot/practice2-eltex-pg2-v7.git
+git remote -v
+git push -u origin main

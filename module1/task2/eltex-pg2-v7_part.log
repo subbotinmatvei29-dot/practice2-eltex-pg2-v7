@@ -1,0 +1,28 @@
+screen -S "$(whoami)_part2"
+echo $HIST<Tab><Tab>
+echo "$HISTFILESIZE"
+echo "$HISTSIZE"
+cd ~
+ls -Ad .*
+export HISTTIMEFORMAT='%F %T '
+history 5
+date
+history 5
+tail -n 5 "$HISTFILE"
+PROMPT_COMMAND='history -a'
+echo "$PROMPT_COMMAND"
+whoami
+history 5
+tail -n 5 "$HISTFILE"
+DATE=$(date +%F)
+TIME=$(date +%T)
+DATE_TIME="${DATE}_${TIME}"
+echo "$DATE"
+echo "$TIME"
+echo "$DATE_TIME"
+find /bin /sbin -maxdepth 1 -type f | grep '[0-9]'
+export PS1='\u@\h-$(date +%H:%M) > '
+bash
+exit
+mkdir -p ~/"$(date +%Y)"-{01..12}
+ls -d ~/"$(date +%Y)"-*
