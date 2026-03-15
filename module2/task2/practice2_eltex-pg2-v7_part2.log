@@ -1,0 +1,12 @@
+MYUSER="eltex-pg2-v7"
+touch "practice2_${MYUSER}_part2.log"
+ls -l "practice2_${MYUSER}_part2.log"
+boot_time="$(who -b | awk '{print $3" "$4}')"
+journalctl -b --since "$boot_time" --until "$boot_time + 20 seconds"
+authlog="$(find /var/log -name 'auth.log' 2>/dev/null | head -n 1)"
+awk '{src=$5; sub(/:$/,"",src); msg=""; for(i=6;i<=NF;i++) msg=msg $i (i<NF?" ":""); print src " | " msg}' "$authlog" | sed -E 's/\[[0-9]+\]//g' | sort
+awk '{src=$5; sub(/:$/,"",src); print src}' "$authlog" | sed -E 's/\[[0-9]+\]//g' | sort | uniq -c | sort -nr
+awk -F: '$7=="/usr/sbin/nologin"{print $3, $1}' /etc/passwd | sort -nr | while read uid user; do echo "$uid, $user, $(id -nG "$user")"; done
+dmesg | grep 'kernel'
+wc -l /var/log/kern.log
+awk -F': ' '/^Start-Date:/ {start=$2} /^Commandline:/ {cmd=$2} /^End-Date:/ {print "Commandline: " cmd " ; Start-Date: " start " ; End-Date: " $2}' /var/log/apt/history.log

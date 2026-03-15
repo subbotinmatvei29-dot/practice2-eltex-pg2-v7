@@ -12,3 +12,16 @@ git branch -M main
 git remote add origin git@github.com:subbotinmatvei29-dot/practice2-eltex-pg2-v7.git
 git remote -v
 git push -u origin main
+mkdir -p module1/task1
+mkdir module1/task2
+mkdir module1/task3
+find module1
+scp /home/eltex-pg2-v7/practice2_eltex-pg2-v7_part1.log root@172.16.9.207:/root/practice2-eltex-pg2-v7/module1/task1/
+scp /home/eltex-pg2-v7/eltex-pg2-v7_part.log root@172.16.9.207:/root/practice2-eltex-pg2-v7/module1/task2/
+scp /home/eltex-pg2-v7/eltex-pg2-v7_part3.log root@172.16.9.207:/root/practice2-eltex-pg2-v7/module1/task3/
+find /root/practice2-eltex-pg2-v7/module1 -type f
+cd ~/practice2-eltex-pg2-v7
+git add .
+git status
+git commit -m "add module1 reports"
+git push

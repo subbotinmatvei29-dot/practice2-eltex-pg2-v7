@@ -1,0 +1,16 @@
+MYUSER="eltex-pg2-v7"
+touch "practice2_${MYUSER}_part3.log"
+ls -l "practice2_${MYUSER}_part3.log"
+apt update
+apt install -y git gh
+git --version
+gh --version
+git config --global user.name "ТВОЙ_ЛОГИН_ИЛИ_ИМЯ_НА_GITHUB"
+git config --global user.email "ТВОЙ_EMAIL_ОТ_GITHUB"
+git config --global init.defaultBranch main
+git config --global --list
+ssh-keygen -t ed25519 -f ~/.ssh/github_eltex_pg2_v7
+ls -l ~/.ssh/github_eltex_pg2_v7*
+gh auth login
+gh auth setup-git --hostname github.com
+gh auth status

@@ -1,0 +1,6 @@
+ssh-keygen
+ssh-copy-id root@172.16.9.207
+cat ~/.ssh/*.pub
+cat ~/.ssh/authorized_keys
+ls -l ~/.ssh/authorized_keys
+ls -ld ~/.ssh
